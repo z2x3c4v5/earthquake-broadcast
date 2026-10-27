@@ -3,17 +3,19 @@
 <style>
 *{box-sizing:border-box}body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#f3f6fa;color:#172235;max-width:830px;margin:35px auto;padding:18px}main{background:white;padding:30px;border-radius:18px;box-shadow:0 8px 25px #182a3c12}h1{font-size:27px;margin-top:0}h2{font-size:20px;margin:0 0 8px}.panel{padding:22px;border:1px solid #dce4ee;border-radius:14px;margin:22px 0;background:#fcfdff}.panel:first-of-type{border-left:6px solid #bb6d0b}.panel.evac{border-left:6px solid #166d68}.desc{color:#526079;margin:7px 0 14px}button{padding:13px 18px;background:#184b85;color:white;border:0;border-radius:10px;font-size:17px;font-weight:bold;cursor:pointer}button.evac{background:#126b5d}button.stop{background:#a82424}button:hover{filter:brightness(1.09)}button:focus-visible{outline:3px solid #ffa51e}label{display:inline-flex;align-items:center;gap:10px;margin:8px 22px 8px 0}select,input{font-size:16px}select{max-width:280px;padding:6px} .script{white-space:pre-wrap;line-height:1.85;background:#f2f5fa;padding:17px;border-radius:10px;font-size:15px;margin-top:14px}small{color:#556273;line-height:1.7}#status{font-size:17px;font-weight:bold;color:#184b85;min-height:1.5em}.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.tag{font-size:12px;color:#627188;font-weight:normal}@media(max-width:540px){main{padding:18px}h1{font-size:23px}.panel{padding:15px}button{width:100%}label{display:flex;margin:12px 0}}</style>
 </head><body><main>
-<h1>📢 학교 지진대피 안내 방송</h1><p><strong>방송 순서:</strong> 1단계 버튼 → 상승·하강 경보형 사이렌 약 5초 → 지진 발생 안내 / 2단계 버튼 → 대피 안내</p>
-<p>지진이 발생했을 때와 <strong>흔들림이 멈춘 뒤 이동할 때</strong>를 나누어 방송할 수 있습니다. 상황에 맞는 버튼을 눌러 주세요.</p>
+<h1>🚨 학교 지진대피 모의훈련 방송실</h1><div style="padding:12px 16px;border:1px solid #c9ddec;background:#eff7ff;border-radius:10px;font-weight:bold">📍 훈련용 방송입니다 — 실제 재난 발생 안내가 아닙니다.</div><p><strong>방송 순서:</strong> 1단계 버튼 → 상승·하강 경보형 사이렌 약 5초 → 지진 발생 안내 / 2단계 버튼 → 대피 안내</p>
+<p>모의 지진 발생 시와 <strong>흔들림이 멈춘 뒤 이동할 때</strong>를 나누어 방송할 수 있습니다. 상황에 맞는 버튼을 눌러 주세요.</p>
 <div class="controls"><label>한국어 음성 <select id="voice" aria-label="한국어 음성 선택"></select></label><label>말하기 속도 <input id="speed" type="range" min="0.8" max="1.3" step="0.05" value="1.0"><output id="rate">1.0</output>배</label></div>
-<div class="panel"><h2>1단계 · 지진 발생, 몸 보호</h2><p class="desc">지진으로 흔들리는 동안 재생하는 안내</p><button type="button" onclick="play('initial')">🚨 실제 경보형 사이렌 + 지진 발생 방송</button><div class="script" id="initialScript"></div></div>
-<div class="panel evac"><h2>2단계 · 흔들림이 멈춘 후 밖으로 대피</h2><p class="desc">큰 흔들림이 멈추고 대피 지시가 내려졌을 때 재생</p><button type="button" class="evac" onclick="play('evac')">▶ 운동장 대피 방송 시작</button><div class="script" id="evacScript"></div></div>
-<div class="controls"><button type="button" onclick="testAudio()">🔔 사이렌 소리 시험</button><button type="button" onclick="testVoice()">🎙 음성 시험</button><button class="stop" onclick="stop()">■ 방송 중지</button><p id="status" role="status" aria-live="polite">방송 대기 중</p></div>
-<p><small>※ 이 페이지가 아닌 다른 탭으로 이동하거나 브라우저가 음성 합성을 중단하면 소리가 끊길 수 있습니다. 방송 중에는 이 탭을 유지하고, 방송실 PC의 출력 장치·음량을 먼저 확인해 주세요. 이 페이지는 실제 MP3가 아니라 브라우저 내장 한국어 음성으로 재생됩니다.<br>※ 실제 지진에서는 흔들리는 동안 건물 밖으로 뛰어나가지 않습니다. 큰 흔들림이 멈추면 주변 상황과 대피 경로를 확인하고, 학교의 현장 지시에 따라 이동합니다. 이 페이지는 크롬·엣지의 한국어 음성 기능을 사용하며 음성 품질은 기기에 설치된 목소리에 따라 달라집니다.</small></p>
+<div class="panel"><h2>1단계 · 지진 발생, 몸 보호</h2><p class="desc">지진으로 흔들리는 동안 재생하는 안내</p><button type="button" onclick="play('initial')">🚨 1단계: 알림음 · 사이렌 · 긴급방송</button><div class="script" id="initialScript"></div></div>
+<div class="panel evac"><h2>2단계 · 흔들림이 멈춘 후 밖으로 대피</h2><p class="desc">큰 흔들림이 멈추고 대피 지시가 내려졌을 때 재생</p><button type="button" class="evac" onclick="play('evac')">📢 2단계: 운동장 대피 지시 방송</button><div class="script" id="evacScript"></div></div>
+<div class="controls"><button type="button" onclick="testAudio()">🔔 사이렌만 미리 듣기</button><button type="button" onclick="testVoice()">🎙 음성 시험</button><button class="stop" onclick="stop()">■ 방송 중지</button><p id="status" role="status" aria-live="polite">방송 대기 중</p></div>
+<p><small>※ 훈련 시작 전에 방송실의 볼륨을 작게 시작해 적절히 조절하세요. 실제 상황에서는 학교의 위기 대응 계획과 현장 지시가 우선입니다.<br>※ 이 페이지가 아닌 다른 탭으로 이동하거나 브라우저가 음성 합성을 중단하면 소리가 끊길 수 있습니다. 방송 중에는 이 탭을 유지하고, 방송실 PC의 출력 장치·음량을 먼저 확인해 주세요. 이 페이지는 실제 MP3가 아니라 브라우저 내장 한국어 음성으로 재생됩니다.<br>※ 실제 지진에서는 흔들리는 동안 건물 밖으로 뛰어나가지 않습니다. 큰 흔들림이 멈추면 주변 상황과 대피 경로를 확인하고, 학교의 현장 지시에 따라 이동합니다. 이 페이지는 크롬·엣지의 한국어 음성 기능을 사용하며 음성 품질은 기기에 설치된 목소리에 따라 달라집니다.</small></p>
 </main><script>
 const scripts={
 initial:[
-'긴급 안내 방송입니다. 긴급 안내 방송입니다. 현재 지진이 발생했습니다.',
+'알려드립니다. 지금부터 지진 대피 훈련을 실시하겠습니다.',
+'훈련 상황입니다. 지진이 발생한 상황을 가정하겠습니다.',
+'긴급 안내 방송입니다. 긴급 안내 방송입니다.',
 '학생 여러분, 당황하지 말고 침착하게 행동하십시오.',
 '지금 즉시 책상 아래로 들어가 몸을 숨기고, 책상 다리를 단단히 잡으십시오.',
 '가방이나 두 팔로 머리와 목을 보호하십시오.',
@@ -21,7 +23,7 @@ initial:[
 '흔들림이 멈출 때까지 안전한 자세로 기다리고, 선생님의 안내에 따르십시오.'
 ],
 evac:[
-'안내 말씀드립니다. 지진의 큰 흔들림이 멈췄습니다.',
+'훈련 안내 방송입니다. 훈련 상황에서 지진의 큰 흔들림이 멈췄습니다.',
 '학생 여러분은 지금부터 선생님의 지시에 따라 안전한 장소로 대피하시기 바랍니다.',
 '가방이 있다면 가방으로 머리와 목을 보호하십시오. 가방이 없는 경우에는 두 팔로 머리를 보호하십시오.',
 '선생님의 안내에 따라 줄을 서서 침착하게 이동하십시오.',
@@ -59,6 +61,19 @@ runId++;
 if(speechTimer){clearInterval(speechTimer);speechTimer=null}
 if(synth)synth.cancel();
 activeUtterance=null;clearSound();setStatus('방송 중지됨');
+}
+async function chime(active){
+const AudioContextClass=window.AudioContext||window.webkitAudioContext;if(!AudioContextClass)return;
+try{
+audioCtx=new AudioContextClass();await audioCtx.resume();if(active!==runId){clearSound();return}
+const t0=audioCtx.currentTime;
+[0,.57,1.14].forEach((delta)=>{
+const osc=audioCtx.createOscillator(),g=audioCtx.createGain();osc.type='sine';osc.frequency.setValueAtTime(880,t0+delta);osc.frequency.exponentialRampToValueAtTime(660,t0+delta+.4);
+g.gain.setValueAtTime(.0001,t0+delta);g.gain.linearRampToValueAtTime(.17,t0+delta+.025);g.gain.exponentialRampToValueAtTime(.0001,t0+delta+.47);
+osc.connect(g);g.connect(audioCtx.destination);osc.start(t0+delta);osc.stop(t0+delta+.5);sirenNodes.push(osc);
+});
+await new Promise(resolve=>setTimeout(resolve,1800));if(active===runId)clearSound();
+}catch(e){clearSound()}
 }
 async function siren(durationMs,active){
 const AudioContextClass=window.AudioContext||window.webkitAudioContext;
@@ -116,9 +131,9 @@ try{synth.speak(utterance);synth.resume()}catch(e){setStatus('음성 시작 실�
 async function play(key){
 stop();const active=runId;
 queue=scripts[key];
-if(key==='initial'){setStatus('사이렌 방송 중 (약 5초)');await siren(5000,active)}
+if(key==='initial'){setStatus('훈련 시작 알림음 재생 중');await chime(active);if(active!==runId)return;setStatus('재난 경보 사이렌 재생 중 (약 7초)');await siren(7000,active)}
 if(active!==runId)return;
-setStatus(key==='initial'?'1단계 지진 발생 방송 중':'2단계 대피 방송 중');
+setStatus(key==='initial'?'1단계 훈련 방송 중':'2단계 훈련 대피 방송 중');
 startSpeech(active);
 }
 async function testAudio(){stop();let active=runId;setStatus('사이렌 시험 재생');await siren(2000,active);if(active===runId)setStatus('사이렌 시험 완료')}
